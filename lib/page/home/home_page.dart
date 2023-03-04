@@ -1,5 +1,4 @@
 import 'package:app_information_world/app_colors.dart';
-import 'package:app_information_world/common/widgets/appbar.dart';
 import 'package:app_information_world/page/home/chart_world_ratio_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -15,13 +14,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: buildAppBar(context: context, title: "Tổng quan thế giới"),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(
           children: [
             buildTitle(),
             buildGraph(),
+            const SizedBox(
+              height: 16,
+            ),
             buildChatWorldRatioPage(),
           ],
         ),
@@ -215,6 +216,10 @@ class _HomePageState extends State<HomePage> {
         const Expanded(child: ChatWorldRatioPage()),
         Column(
           children: const [
+            Icon(Icons.pie_chart_rounded),
+            SizedBox(
+              width: 24,
+            ),
             Text(
               "Đất liền",
               style: TextStyle(
@@ -223,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 16,
+              height: 8,
             ),
             Text(
               "Biển",

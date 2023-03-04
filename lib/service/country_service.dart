@@ -3,7 +3,9 @@ import 'package:app_information_world/model/country.dart';
 abstract class CountryService {
   Future<List<Country>> getAllCountry(); // Object
 
-  Future<List<Country>> getCountryByName(String name); // Object
+  Future<Country> getCountryByCode(String code);//  Object
+
+  Future<List<Country>> getCountriesByRegion(String region); // List
 
   Future getCountryByCurrency(); // List
 
@@ -11,7 +13,6 @@ abstract class CountryService {
 
   Future getCountryByCapitalCity(); // Object
 
-  Future getCountryByRegion(); // List
-
   Future getCountryBySubregion(); // List
+
 }

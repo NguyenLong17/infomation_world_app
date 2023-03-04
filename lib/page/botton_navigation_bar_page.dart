@@ -1,4 +1,6 @@
+import 'package:app_information_world/page/counties/countries_page.dart';
 import 'package:app_information_world/page/home/home_page.dart';
+import 'package:app_information_world/page/search/search_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarPage extends StatefulWidget {
@@ -17,14 +19,8 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    CountriesPage(),
+    SearchPage()
   ];
 
   void _onItemTapped(int index) {

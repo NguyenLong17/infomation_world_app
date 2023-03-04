@@ -1,6 +1,11 @@
 import 'package:app_information_world/page/botton_navigation_bar_page.dart';
 import 'package:app_information_world/page/counties/countries_page.dart';
+import 'package:app_information_world/page/counties/countries_region_page.dart';
+import 'package:app_information_world/page/counties/country_detail_page.dart';
+import 'package:app_information_world/page/demo_page.dart';
+import 'package:app_information_world/page/home/home_page.dart';
 import 'package:app_information_world/page/splash_page.dart';
+import 'package:app_information_world/test.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +25,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CountriesPage(),
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => Test()),
+        GetPage(name: '/bottomNavigationBarPage', page: () => BottomNavigationBarPage()),
+        GetPage(name: '/countries', page: () => CountriesPage()),
+        GetPage(name: '/countriesRegion', page: () => CountriesRegionPage()),
+        GetPage(name: '/countryDetail', page: () => CountryDetailPage()),
+        GetPage(name: '/demoPage', page: () => DemoPage()),
+      ],
+
+      // home: CountriesPage(),
     );
   }
 }
