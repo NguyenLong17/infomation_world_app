@@ -1,5 +1,4 @@
 import 'package:app_information_world/model/country.dart';
-import 'package:app_information_world/model/countryv3.dart';
 import 'package:app_information_world/service/api_service.dart';
 import 'package:get/get.dart';
 

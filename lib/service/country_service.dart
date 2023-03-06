@@ -7,12 +7,8 @@ abstract class CountryService {
 
   Future<List<Country>> getCountriesByRegion(String region); // List
 
-  Future getCountryByCurrency(); // List
+  Future<List<Country>> searchCountries(String type, String region); // List
+  Future testAPI(); // List
 
-  Future getCountryByLanguage(); // List
-
-  Future getCountryByCapitalCity(); // Object
-
-  Future getCountryBySubregion(); // List
 
 }

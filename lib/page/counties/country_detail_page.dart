@@ -30,13 +30,6 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
           context: context,
           title: countryController.country.value.name ?? "",
           color: Colors.blue,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Get.toNamed("/");
-                },
-                icon: const Icon(Icons.garage_outlined)),
-          ],
         ),
         body: buildBody(),
       ),
@@ -298,7 +291,9 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
                     flex: 1,
                     child: Image.asset("assets/images/language.png"),
                   ),
-                  SizedBox(width: 16,)
+                  SizedBox(
+                    width: 16,
+                  )
                 ],
               ),
             ],

@@ -14,17 +14,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        child: Column(
-          children: [
-            buildTitle(),
-            buildGraph(),
-            const SizedBox(
-              height: 16,
-            ),
-            buildChatWorldRatioPage(),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              buildTitle(),
+              buildGraph(),
+              const SizedBox(
+                height: 16,
+              ),
+              buildChatWorldRatioPage(),
+            ],
+          ),
         ),
       ),
     );

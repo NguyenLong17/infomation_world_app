@@ -1,7 +1,6 @@
 import 'package:app_information_world/common/consts.dart';
 import 'package:app_information_world/controller/contries_controller.dart';
 import 'package:app_information_world/model/country.dart';
-import 'package:app_information_world/model/countryv3.dart';
 import 'package:app_information_world/service/country_service.dart';
 import 'package:get/get.dart';
 
@@ -30,27 +29,25 @@ class ApiService extends GetConnect implements CountryService {
   }
 
   @override
-  Future getCountryByCapitalCity() {
-    // TODO: implement getCountryByCapitalCity
-    throw UnimplementedError();
+  Future<List<Country>> searchCountries(String type, String region) async {
+    final response = await get('$baseUrl/$type}/$region');
+    final countries =
+    List<Country>.from((response.body).map((e) => Country.fromJson(e)));
+    return countries;
   }
 
   @override
-  Future getCountryByCurrency() {
-    // TODO: implement getCountryByCurrency
-    throw UnimplementedError();
+  Future testAPI() async {
+    print('---Data----:');
+
+    final response = await get('https://restcountries.com/v2/alpha/VN');
+    // final response = await get('https://63686fa947cee17982b2b192.mockapi.io/manga');
+    final country = response.body;
+
+    print('---Data----: ${country}');
   }
 
-  @override
-  Future getCountryByLanguage() {
-    throw UnimplementedError();
-  }
 
-  @override
-  Future getCountryBySubregion() {
-    // TODO: implement getCountryBySubregion
-    throw UnimplementedError();
-  }
 }
 
 final apiService = ApiService();

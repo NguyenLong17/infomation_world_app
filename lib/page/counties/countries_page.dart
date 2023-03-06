@@ -44,7 +44,9 @@ class _CountriesPageState extends State<CountriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: buildBody(),
+      body: SafeArea(
+        child: buildBody(),
+      ),
     );
   }
 
@@ -77,14 +79,8 @@ class _CountriesPageState extends State<CountriesPage> {
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(25)),
                   ),
-                  child: Stack(
-                    alignment: Alignment.topCenter,
+                  child: Column(
                     children: [
-                      Center(
-                        child: Image.asset(
-                          imageRegions[index],
-                        ),
-                      ),
                       Text(
                         regions[index],
                         style: const TextStyle(
@@ -92,6 +88,16 @@ class _CountriesPageState extends State<CountriesPage> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
+                      SizedBox(height: 16,),
+                      Expanded(
+                        child: Center(
+                          child: Image.asset(
+                            imageRegions[index],
+                          ),
+                        ),
+                      ),
+
+
                     ],
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:app_information_world/page/counties/countries_page.dart';
 import 'package:app_information_world/page/home/home_page.dart';
 import 'package:app_information_world/page/search/search_page.dart';
+import 'package:app_information_world/page/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarPage extends StatefulWidget {
@@ -17,10 +18,11 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    CountriesPage(),
-    SearchPage()
+  static final List<Widget> _widgetOptions = <Widget>[
+    const HomePage(),
+    const CountriesPage(),
+    const SearchPage(),
+    SettingPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -36,26 +38,30 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topRight: Radius.circular(15),
           topLeft: Radius.circular(15),
         ),
         child: BottomNavigationBar(
           backgroundColor: Colors.grey.shade300,
           elevation: 2,
-          items: <BottomNavigationBarItem>[
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               // icon: Icon(Icons.home),
               icon: Icon(Icons.home),
-              label: 'Home',
+              label: 'World',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.landscape),
-              label: 'Business',
+              label: 'Region',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search_outlined),
-              label: 'School',
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search_outlined),
+              label: 'Setting',
             ),
           ],
           currentIndex: _selectedIndex,
