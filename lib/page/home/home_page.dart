@@ -1,6 +1,7 @@
 import 'package:app_information_world/app_colors.dart';
 import 'package:app_information_world/page/home/chart_world_ratio_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
@@ -45,9 +46,9 @@ class _HomePageState extends State<HomePage> {
           width: double.infinity,
           child: Column(
             children: [
-              const Text(
-                "Tổng quan thế giới",
-                style: TextStyle(
+               Text(
+                "World overview".tr,
+                style: const TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 22,
                 ),
@@ -70,9 +71,9 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          "Dân số",
-                          style: TextStyle(fontWeight: FontWeight.w500),
+                         Text(
+                          "Population".tr,
+                          style: const TextStyle(fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(
                           height: 4,
@@ -105,9 +106,9 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(
                           height: 12,
                         ),
-                        const Text(
-                          "Diện tích bề mặt",
-                          style: TextStyle(fontWeight: FontWeight.w500),
+                         Text(
+                          "Surface area".tr,
+                          style: const TextStyle(fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(
                           height: 4,
@@ -162,8 +163,8 @@ class _HomePageState extends State<HomePage> {
                     const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
                 child: Column(
                   children: [
-                    const Text(
-                        "Biểu đồ dân số thế giới: quá khứ, hiện tại và tương lai"),
+                     Text(
+                        "World population chart: past, present and future".tr),
                     const SizedBox(
                       height: 4,
                     ),
@@ -192,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                     const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
                 child: Column(
                   children: [
-                    const Text("Biểu đồ tốc độ tăng dân số thế giới"),
+                     Text("World population growth chart".tr),
                     const SizedBox(
                       height: 4,
                     ),
@@ -216,24 +217,23 @@ class _HomePageState extends State<HomePage> {
       children: [
         const Expanded(child: ChatWorldRatioPage()),
         Column(
-          children: const [
-            Icon(Icons.pie_chart_rounded),
-            SizedBox(
+          children:  [
+            const Icon(Icons.pie_chart_rounded),
+            const SizedBox(
               width: 24,
             ),
             Text(
-              "Đất liền",
-              style: TextStyle(
+              "Land".tr,
+              style: const TextStyle(
                   fontSize: 20,
-                  color: AppColors.contentColorBrown,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Text(
-              "Biển",
-              style: TextStyle(
+              "Sea".tr,
+              style: const TextStyle(
                   fontSize: 20,
                   color: AppColors.contentColorBlue,
                   fontWeight: FontWeight.bold),

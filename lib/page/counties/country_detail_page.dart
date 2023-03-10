@@ -79,9 +79,9 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
             Expanded(
               child: Column(
                 children: [
-                  const Text(
-                    "Alt Spellings",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                   Text(
+                    "Alt Spellings".tr,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 16,
@@ -137,19 +137,19 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Region : ${countryController.country.value.region}"),
+            Text("${"Region".tr}: ${countryController.country.value.region}"),
             const SizedBox(
               height: 8,
             ),
-            Text("Sub Region : ${countryController.country.value.subregion}"),
+            Text("${"Sub Region".tr} : ${countryController.country.value.subregion}"),
             const SizedBox(
               height: 8,
             ),
-            Text("Native Name : ${countryController.country.value.nativeName}"),
+            Text("${"Native Name".tr}: ${countryController.country.value.nativeName}"),
             const SizedBox(
               height: 8,
             ),
-            Text("Capital : ${countryController.country.value.capital}"),
+            Text("${"Capital ".tr}: ${countryController.country.value.capital}"),
           ],
         ),
       ),
@@ -167,7 +167,7 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
         width: double.infinity,
         padding: const EdgeInsets.all(16),
         child:
-            Text("Population : ${countryController.country.value.population}"),
+            Text("${"Population".tr} : ${countryController.country.value.population}"),
       ),
     );
   }
@@ -183,9 +183,9 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Currencies",
-                style: TextStyle(fontWeight: FontWeight.bold),
+               Text(
+                "Currencies".tr,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 8,
@@ -200,15 +200,15 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Name : ${currency?.name}"),
+                        Text("${"Name".tr} : ${currency?.name}"),
                         const SizedBox(
                           height: 8,
                         ),
-                        Text("Code : ${currency?.code}"),
+                        Text("${"Code".tr} : ${currency?.code}"),
                         const SizedBox(
                           height: 8,
                         ),
-                        Text("Symbol : ${currency?.symbol}"),
+                        Text("${"Symbol".tr} : ${currency?.symbol}"),
                       ],
                     );
                   },
@@ -238,9 +238,9 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Language",
-                style: TextStyle(fontWeight: FontWeight.bold),
+               Text(
+                "Language".tr,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 12,
@@ -260,11 +260,11 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Name : ${language?.name}"),
+                              Text("${"Name".tr} : ${language?.name}"),
                               const SizedBox(
                                 height: 8,
                               ),
-                              Text("Native Name : ${language?.nativeName}"),
+                              Text("${"Native Name".tr}  : ${language?.nativeName}"),
                               const SizedBox(
                                 height: 8,
                               ),
@@ -291,7 +291,7 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
                     flex: 1,
                     child: Image.asset("assets/images/language.png"),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   )
                 ],
@@ -315,9 +315,9 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Text(
-                "latlng",
-                style: TextStyle(fontWeight: FontWeight.bold),
+               Text(
+                "Latlng".tr,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 12,
@@ -365,7 +365,7 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
           child: Column(
             children: [
               Text(
-                "Area: ${countryController.country.value.area ?? "00.00"} km²",
+                "${"Area".tr}: ${countryController.country.value.area ?? "00.00"} km²",
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(
@@ -391,9 +391,9 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Country Border",
-              style: TextStyle(fontWeight: FontWeight.bold),
+             Text(
+              "Country Border".tr,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 12,
@@ -439,9 +439,9 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Time Zone",
-              style: TextStyle(fontWeight: FontWeight.bold),
+             Text(
+              "Time Zone".tr,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 12,

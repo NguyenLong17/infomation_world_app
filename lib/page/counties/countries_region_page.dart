@@ -1,6 +1,5 @@
 import 'package:app_information_world/common/widgets/appbar.dart';
 import 'package:app_information_world/controller/contries_controller.dart';
-import 'package:app_information_world/controller/country_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,27 +25,31 @@ class _CountriesRegionPageState extends State<CountriesRegionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
-          context: context,
-          title: dataRegion,
-          color: Colors.blue,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  setState(() {});
-                },
-                icon: const Icon(Icons.access_time_filled))
-          ]),
-      body: countriesController.listCountry == null
-          ? buildBody()
-          : Center(
-              child: CircularProgressIndicator(),
-            ),
+        context: context,
+        title: dataRegion.tr,
+        color: Colors.blue,
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {});
+              },
+              icon: const Icon(Icons.access_time_filled))
+        ],
+      ),
+      body: countriesController.obx((state) => buildBody(),
+          onLoading: const Center(
+            child: CircularProgressIndicator(),
+          ),
+        onEmpty: const Text('No data found'),
+        onError: (error)=>Text(error ?? "Error"),
+
+      ),
     );
   }
 
   Widget buildBody() {
-    return Obx(
-      () => ListView.builder(
+    return GetBuilder<CountriesController>(builder: (context) {
+      return ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 8),
         itemBuilder: (context, index) {
           final country = countriesController.listCountry[index];
@@ -107,7 +110,7 @@ class _CountriesRegionPageState extends State<CountriesRegionPage> {
           );
         },
         itemCount: countriesController.listCountry.length,
-      ),
-    );
+      );
+    });
   }
 }

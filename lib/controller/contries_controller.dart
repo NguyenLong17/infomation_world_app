@@ -1,11 +1,13 @@
 import 'package:app_information_world/model/country.dart';
 import 'package:app_information_world/service/api_service.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
-class CountriesController extends GetxController {
+class CountriesController extends GetxController with StateMixin {
   final RxList<Country> listCountry = <Country>[].obs;
+
   // List<Countryv3> test = [];
 
   @override
@@ -28,13 +30,12 @@ class CountriesController extends GetxController {
   // }
 
   void getCountriesByRegion(String region) {
-    listCountry.add(Country(name: "Long"));
-
+    change(null, status: RxStatus.loading());
 
     apiService.getCountriesByRegion(region).then((value) {
       listCountry.addAll(value);
-      print('------------.getCountriesByRegion: ${listCountry.length}');
       update();
+      change(null, status: RxStatus.success());
     });
   }
 }

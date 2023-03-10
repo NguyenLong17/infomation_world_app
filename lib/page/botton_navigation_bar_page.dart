@@ -3,6 +3,7 @@ import 'package:app_information_world/page/home/home_page.dart';
 import 'package:app_information_world/page/search/search_page.dart';
 import 'package:app_information_world/page/setting/setting_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BottomNavigationBarPage extends StatefulWidget {
   const BottomNavigationBarPage({super.key});
@@ -13,16 +14,14 @@ class BottomNavigationBarPage extends StatefulWidget {
 }
 
 class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
-  static const IconData globe = IconData(0xf68d);
 
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
   static final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
     const CountriesPage(),
     const SearchPage(),
-    SettingPage(),
+    const SettingPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -37,31 +36,41 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topRight: Radius.circular(15),
-          topLeft: Radius.circular(15),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.only(top: 1),
+        decoration: const BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+            ),
+          ],
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(15),
+            topLeft: Radius.circular(15),
+          ),
         ),
         child: BottomNavigationBar(
-          backgroundColor: Colors.grey.shade300,
+          type: BottomNavigationBarType.fixed,
+
+          // backgroundColor: Colors.grey.shade200,
           elevation: 2,
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               // icon: Icon(Icons.home),
-              icon: Icon(Icons.home),
-              label: 'World',
+              icon: const Icon(Icons.home),
+              label: 'World'.tr,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.landscape),
-              label: 'Region',
+              icon: const Icon(Icons.landscape),
+              label: 'Region'.tr,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search_outlined),
-              label: 'Search',
+              icon: const Icon(Icons.search_outlined),
+              label: 'Search'.tr,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search_outlined),
-              label: 'Setting',
+              icon: const Icon(Icons.settings),
+              label: 'Setting'.tr,
             ),
           ],
           currentIndex: _selectedIndex,

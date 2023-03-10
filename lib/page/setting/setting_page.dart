@@ -1,9 +1,10 @@
 import 'package:app_information_world/controller/setting_controller.dart';
+import 'package:app_information_world/page/setting/language_translations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SettingPage extends StatefulWidget {
-  SettingPage({Key? key}) : super(key: key);
+  const SettingPage({Key? key}) : super(key: key);
 
   @override
   State<SettingPage> createState() => _SettingPageState();
@@ -31,7 +32,7 @@ class _SettingPageState extends State<SettingPage> {
               children: [
                 Container(
                   padding: const EdgeInsets.all(16),
-                  child: const Text("Change Theme"),
+                  child: Text("Change Theme".tr),
                 ),
                 Switch(
                     activeColor: Colors.black,
@@ -43,28 +44,28 @@ class _SettingPageState extends State<SettingPage> {
             ),
           ),
           Card(
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(25)),
             ),
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(16),
-                  child: Text("Change Language"),
+                  padding: const EdgeInsets.all(16),
+                  child: Text("Change Language".tr),
                 ),
                 DropdownButton<String>(
                   value: settingController.dropdownValue,
-                  icon: Icon(Icons.arrow_drop_down_sharp),
+                  icon: const Icon(Icons.arrow_drop_down_sharp),
                   elevation: 16,
-                  style: TextStyle(color: Colors.black),
                   underline: Container(
                     height: 2,
                   ),
                   onChanged: (String? value) {
                     // This is called when the user selects an item.
+                    // settingController.changeLanguage(value ?? "");
                     settingController.changeLanguage(value ?? "");
                   },
-                  items: settingController.listLanguage
+                  items: Language.langCodes
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -76,14 +77,14 @@ class _SettingPageState extends State<SettingPage> {
             ),
           ),
           Card(
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(25)),
             ),
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(16),
-                  child: Text("Music"),
+                  padding: const EdgeInsets.all(16),
+                  child: Text("Music".tr),
                 ),
                 GetBuilder<SettingController>(builder: (context) {
                   return IconButton(
@@ -92,8 +93,8 @@ class _SettingPageState extends State<SettingPage> {
                       settingController.checkPlayMusic();
                     },
                     icon: settingController.isPlay
-                        ? Icon(Icons.play_circle)
-                        : Icon(Icons.stop_circle),
+                        ? const Icon(Icons.play_circle)
+                        : const Icon(Icons.stop_circle),
                   );
                 }),
               ],

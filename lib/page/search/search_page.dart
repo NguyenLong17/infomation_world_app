@@ -16,7 +16,7 @@ class _SearchPageState extends State<SearchPage> {
   final nameSearch = ["Name", "Currency", "Language", "Capital"];
   final describeSearch = [
     "Country name: Vietnam, America, Peru...",
-    "Currency: VND, USD, peru...",
+    "Currency: VND, USD, pen...",
     "Language: pt(Portuguese), nl(Dutch), hr(Croatian), vi(VietNam), es(Spanish), ja(Japanese)...",
     "The capital of a country: Tokyo, HaNoi, lima..."
   ];
@@ -61,7 +61,7 @@ class _SearchPageState extends State<SearchPage> {
                             const Icon(Icons.search_outlined),
                             const SizedBox(width: 16),
                             Text(
-                              nameSearch[index],
+                              nameSearch[index].tr,
                               style:
                                   const TextStyle(fontWeight: FontWeight.bold),
                             ),
@@ -71,7 +71,7 @@ class _SearchPageState extends State<SearchPage> {
                           height: 16,
                         ),
                         Text(
-                          describeSearch[index],
+                          describeSearch[index].tr,
                           style: const TextStyle(fontWeight: FontWeight.normal),
                         )
                       ],

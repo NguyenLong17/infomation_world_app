@@ -9,14 +9,6 @@ class CountriesPage extends StatefulWidget {
 }
 
 class _CountriesPageState extends State<CountriesPage> {
-  final regions = [
-    "Châu Á",
-    "Châu Âu",
-    "Châu Phi",
-    "Châu Đại Dương",
-    "Châu Mỹ",
-    "Châu Nam Cực"
-  ];
   final stringRegion = [
     "Asia",
     "Europe",
@@ -82,13 +74,15 @@ class _CountriesPageState extends State<CountriesPage> {
                   child: Column(
                     children: [
                       Text(
-                        regions[index],
+                        stringRegion[index].tr,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 16,),
+                      const SizedBox(
+                        height: 16,
+                      ),
                       Expanded(
                         child: Center(
                           child: Image.asset(
@@ -96,14 +90,12 @@ class _CountriesPageState extends State<CountriesPage> {
                           ),
                         ),
                       ),
-
-
                     ],
                   ),
                 ),
               );
             },
-            itemCount: regions.length,
+            itemCount: stringRegion.length,
           ),
         ],
       ),

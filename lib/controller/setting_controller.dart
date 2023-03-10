@@ -1,3 +1,4 @@
+import 'package:app_information_world/page/setting/language_translations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,12 +11,13 @@ class SettingController extends GetxController {
     update();
   }
 
-  final listLanguage = ['VietNam', 'English',];
 
-  String dropdownValue = "VietNam";
+  String dropdownValue = Language.langCodes[0];
 
   void changeLanguage(String value) {
     dropdownValue = value;
+    var location = Language.getLocaleFromLanguage(langCode: value);
+    Get.updateLocale(location ?? Locale("", ""));
     update();
   }
 
